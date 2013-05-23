@@ -2,27 +2,26 @@ let s:source = {
       \ 'name': 'stardict',
       \ 'kind': 'plugin',
       \ 'mark': '[stardict]',
-      \ 'max_candidates': 10,
+      \ 'dict': ' 懒虫简明英汉词典 ',
       \ }
-let dict = " 懒虫简明英汉词典 "
 
 function! s:source.initialize()
-  call neocomplcache#set_completion_length('stardict', 2)
+  call neocomplcache#set_completion_length('stardict', 4)
 endfunction
 
 function! s:source.finalize()
 endfunction
 
 function! s:source.get_keyword_list(cur_keyword_str)
-  if a:cur_keyword_str !~ '^[[:alpha:]]\+$'
+  let keyword = a:cur_keyword_str
+  if keyword !~ '^[[:alpha:]]\+$'
     return []
   endif
-  let keyword = a:cur_keyword_str
-  let result = split( neocomplcache#util#system('sdcv -u' . dict . keyword . " -n"),
+  " TODO improve parser
+  let lookup = split( neocomplcache#util#system('sdcv -u' . self.dict . keyword . " -n"),
               \ "-->.*-->" . keyword )
-  "echo result
-  let list = len(result) > 1 ?
-              \ split(result[1], "\n")[1:] : []
+  let list = len(lookup) > 1 ?
+              \ split(lookup[1], "\n")[1:] : []
   if neocomplcache#util#get_last_status()
     return []
   endif

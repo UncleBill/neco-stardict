@@ -11,7 +11,7 @@ requirements
 ------------
 - [stardict][] installed
 - [sdcv][] installed
-- [懒虫简明英汉词典][dictionary](click to download) installed
+- [朗道英汉字典5.0][dictionary](click to download or [dictionary list][]) installed
 
 inspired
 --------
@@ -33,5 +33,6 @@ author
 [neocomplcache]:https://github.com/Shougo/neocomplcache.vim
 [neobundle]:https://github.com/Shougo/neobundle.vim
 [sdcv]:http://askubuntu.com/questions/191125/is-there-an-offline-command-line-dictionary
-[dictionary]:http://abloz.com/huzheng/stardict-dic/zh_CN/stardict-lazyworm-ec-2.4.2.tar.bz2
+[dictionary]:http://abloz.com/huzheng/stardict-dic/zh_CN/stardict-langdao-ec-gb-2.4.2.tar.bz2
+[dictionary list]:http://abloz.com/huzheng/stardict-dic/zh_CN/
 [neco-look]:https://github.com/ujihisa/neco-look

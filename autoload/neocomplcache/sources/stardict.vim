@@ -2,7 +2,7 @@ let s:source = {
       \ 'name': 'stardict',
       \ 'kind': 'plugin',
       \ 'mark': '[stardict]',
-      \ 'dict': ' 懒虫简明英汉词典 ',
+      \ 'dict': ' 朗道英汉字典5.0 ',
       \ }
 
 function! s:source.initialize()
@@ -22,6 +22,8 @@ function! s:source.get_keyword_list(cur_keyword_str)
               \ "-->.*-->" . keyword )
   let list = len(lookup) > 1 ?
               \ split(lookup[1], "\n")[1:] : []
+  let list = filter(list,
+              \ 'v:val !~ "相关词组:" && len(v:val) >0')
   if neocomplcache#util#get_last_status()
     return []
   endif

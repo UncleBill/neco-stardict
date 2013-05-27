@@ -4,8 +4,8 @@ A [neocomplcache.vim][] plugin for dictionary looking up on the fly
 
 install
 -------
-recommend [vundle][] or [neobundle][]
-add `Bundle "UncleBill/neco-stardict"` to your `.vimrc`
+recommend [neobundle][]
+add `NeoBundle "UncleBill/neco-stardict"` to your `.vimrc`
 
 requirements
 ------------

@@ -31,5 +31,9 @@ function! s:source.get_keyword_list(cur_keyword_str)
 endfunction
 
 function! neocomplcache#sources#stardict#define()
-  return s:source
+    if !executable("sdcv")
+        echoerr "Require sdcv installed. read README.md for details"
+        return {}
+    endif
+    return s:source
 endfunction

@@ -15,7 +15,7 @@ function! s:source.finalize()
 endfunction
 
 function! s:source.get_keyword_list(cur_keyword_str)
-  let keyword = a:cur_keyword_str
+  let keyword = tolower(a:cur_keyword_str)
   if keyword !~ '^[[:alpha:]]\+$'
     return []
   endif

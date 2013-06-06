@@ -8,7 +8,7 @@ let s:source = {
       \ }
 
 function! s:source.gather_candidates(context)
-  let keyword = a:context.complete_str
+  let keyword = tolower(a:context.complete_str)
   if keyword !~ '^[[:alpha:]]\+$'
     return []
   endif

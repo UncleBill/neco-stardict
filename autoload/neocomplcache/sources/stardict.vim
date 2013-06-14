@@ -2,7 +2,7 @@ let s:source = {
       \ 'name': 'stardict',
       \ 'kind': 'plugin',
       \ 'mark': '[stardict]',
-      \ 'dict': ' 朗道英汉字典5.0 ',
+      \ 'dict': '朗道英汉字典5.0',
       \ 'min_pattern_length' : 3,
       \ 'is_volatile': 1,
       \ }
@@ -15,13 +15,16 @@ function! s:source.finalize()
 endfunction
 
 function! s:source.get_keyword_list(cur_keyword_str)
-  let keyword = tolower(a:cur_keyword_str)
-  if keyword !~ '^[[:alpha:]]\+$'
+  let s:keyword = tolower(a:cur_keyword_str)
+  if s:keyword !~ '^[[:alpha:]]\+$'
     return []
   endif
+  if exists("g:neco_stardict_dictname")
+      let self.dict = g:neocomplete_neco_stardict
+  endif
   " TODO improve parser
-  let lookup = split( neocomplcache#util#system('sdcv -u' . self.dict . keyword . " -n"),
-              \ "-->.*-->" . keyword )
+  let lookup = split( system('sdcv -u ' . self.dict . ' ' . s:keyword . " -n"),
+              \ "-->.*-->" . s:keyword )
   let list = len(lookup) > 1 ?
               \ split(lookup[1], "\n")[1:] : []
   let list = filter(list,

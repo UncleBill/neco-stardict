@@ -13,6 +13,13 @@ requirements
 - [sdcv][] installed
 - [朗道英汉字典5.0][dictionary](click to download or [dictionary list][]) installed
 
+custom dictionary
+-----------------
+
+```
+let g:neco_stardict_dictname = "新的词典"
+```
+
 inspired
 --------
 [neco-look][]
